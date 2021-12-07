@@ -46,25 +46,42 @@
         <meta name="color-scheme" content="light dark">
         <link rel="stylesheet" href="css/index.css">
         <script  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
         <title>H2Go</title>
     </head>
     <body>
-        <div class="app">
+        <!--<div class="app">
             <h1>Apache Cordova</h1>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
-            </div>
+            </div>-->
 
             <!-- You can remove above; Below is where your code should go; -->
-            <div>
+        <div class="container" style="display: inline-block;">
+            <div class="container">
+                <h2>My Hydration Progress</h2>
                 <div id="water_intake"></div>
+            </div>
+
+            <div class="container" id="bottlecontainer">
+                <div class="progress" id="bottle" style="height: 200px; transform: rotate(-90deg);">
+                    <div class="progress-bar" role="progressbar" style="width: 40%">40%</div>
+                </div>
+            </div>
+        
+            <div class="container">
+                <canvas id="myChart" width="600" height="400"></canvas>
             </div>
         </div>
 
         <!-- All scripts that affect page render goes here -->
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery.js"></script>
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
         <script type="module" src="js/firebase.js"></script>
+        <script src="js/chart.js"></script>
     </body>
 </html>

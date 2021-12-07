@@ -27,3 +27,17 @@ function onDeviceReady() {
     //console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
 }
+
+var goal = 16; //in ml
+var current = Math.floor(Math.random() * (goal+1)); //how much is gone
+var percent = current/goal*100;
+
+//newNumber - a percentage of the goal
+function updateProgress(newNumber) {
+	progress = document.getElementById('bottle');
+	console.log(progress);
+	progress.innerHTML ="<div class='progress-bar' role='progressbar' style='width:" + newNumber + "%'>" + newNumber + "%</div>";
+	console.log(progress.innerHTML);
+}
+
+updateProgress(percent); //make this and numbers update every minute please!

@@ -25,7 +25,7 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#E4E4E4;
-    background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:linear-gradient(to bottom, #E5F5F7 33%, #AFD2D5 66%, #4693AF 100%);
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     font-size:12px;
     height:100vh;
@@ -107,4 +107,25 @@ h1 {
     body {
         background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
     }
+}
+
+/*change max width and height to change progrss bar size.
+it will mess with the alignment*/
+#bottle{
+    max-width: 300px;
+    position: relative;
+    top: 50px; /*top of container = (width-200)*.5 -idk why*/
+    left:-50px;
+}
+#bottlecontainer{
+    height: 300px;
+    margin-bottom: 30px;
+}
+
+.container{
+    padding: 15px;
+}
+
+canvas{
+    max-width: 300px;
 }
