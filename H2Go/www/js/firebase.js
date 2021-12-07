@@ -11,19 +11,22 @@ const firebaseConfig = {
     appId: "1:466823744518:web:a36030c3c07f5853738787"
   };
 
+
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const readings_ref = ref(database, 'readings')
-
-let wi_node = document.getElementById("water_intake");
-
+let wi_node = document.getElementById('water_intake');
 // Recent readings
 const NUM_READS = 5;
 const query_ref = query(readings_ref, limitToLast(NUM_READS));
 onChildAdded(query_ref, (data) => {
   let dataobj = JSON.parse(data.val());
-  let listnode = document.createElement("li");
-  let textnode = document.createTextNode(`${dataobj.datetime} ${dataobj.water}`);
+  let water_intake = dataobj.water;
+  let water_time = moment(dataobj.datetime, 'YYYYMMDDHHmm');
+  console.log(water_time)
+
+  let listnode = document.createElement('li');
+  let textnode = document.createTextNode(`${water_time.format('MM-DD-YYYY | HH:mm')} [${water_intake} ml]`);
   listnode.appendChild(textnode);
   wi_node.appendChild(listnode);
 });

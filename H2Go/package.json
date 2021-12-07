@@ -21,7 +21,5 @@
       "browser"
     ]
   },
-  "dependencies": {
-    "moment": "^2.29.1"
-  }
+  "dependencies": {}
 }
