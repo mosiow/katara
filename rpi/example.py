@@ -23,7 +23,9 @@ db = fb.database()
 
 EMULATE_HX711=False
 
-referenceUnit = 33.87
+#referenceUnit = 33.87
+#referenceUnit = 33.87
+
 
 if not EMULATE_HX711:
     import RPi.GPIO as GPIO

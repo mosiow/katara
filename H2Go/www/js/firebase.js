@@ -1,8 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-import { getDatabase, ref, onChildAdded, query, limitToLast } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js"
+import { getDatabase, ref, onChildAdded, query, limitToLast, onValue } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
 
-//import { getDatabase } from "../../node_modules/firebase/database";
-// TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAgHQhbQPFDCUiHI5DQMvOJkLMxdDgfgBM",
     authDomain: "h2go-575f0.firebaseapp.com",
@@ -14,22 +12,18 @@ const firebaseConfig = {
   };
 
 const app = initializeApp(firebaseConfig);
-
-// Get a reference to the database service
 const database = getDatabase(app);
+const readings_ref = ref(database, 'readings')
 
-console.log("javascript is rad")
+let wi_node = document.getElementById("water_intake");
 
-const weightRef = ref(database, 'readings/weights')
-var weight = 0
-
-var data = 10
-var i = 0
-const recentWeights = query(ref(database, 'readings/weights'), limitToLast(20))
-onChildAdded(recentWeights, (snapshot) => {
-    console.log(snapshot.val())
-})
-
-console.log(recentWeights.ref)
-
-document.getElementById("weight").innerHTML = weight
+// Recent readings
+const NUM_READS = 5;
+const query_ref = query(readings_ref, limitToLast(NUM_READS));
+onChildAdded(query_ref, (data) => {
+  let dataobj = JSON.parse(data.val());
+  let listnode = document.createElement("li");
+  let textnode = document.createTextNode(`${dataobj.datetime} ${dataobj.water}`);
+  listnode.appendChild(textnode);
+  wi_node.appendChild(listnode);
+});

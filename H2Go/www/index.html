@@ -29,7 +29,8 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" 
+        <!-- UNCOMMENT FOR CORDOVA USE; COMMENT FOR EASY DEV THROUGH LIVESERVER -->
+        <!-- <meta http-equiv="Content-Security-Policy" 
         content="default-src * data: cdvfile: gap:; 
                     style-src 'self'  https://cdn.firebase.com
                                     https://*.firebaseio.com
@@ -37,7 +38,8 @@
                     script-src 'self' https://h2go-575f0-default-rtdb.firebaseio.com/* 
                                     https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js
                                     https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js
-                                    'unsafe-eval'">        
+                                    'unsafe-eval'
+                                    'unsafe-inline'">         -->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -54,8 +56,8 @@
             </div>
 
             <!-- You can remove above; Below is where your code should go; -->
-            <div id="weight">
-                helloworld
+            <div>
+                <div id="water_intake"></div>
             </div>
         </div>
 
